@@ -2,6 +2,7 @@
 Dijsktra's Algorithm
 
 For a test case you can try
+
 Start x coordinate: 20
 Start y coordinate: 20
 
