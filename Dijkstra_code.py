@@ -60,7 +60,7 @@ def obstacles(st):
         canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
         #print("coordinate is in ellipse")
         return None
-    
+
     elif (st[0] <= ((280+1) + cl) and st[1]>=((200+1)-cl) and st[0]>=((230+1)-cl) and st[1]<=((230+1)+cl)) and not (st[0]<=((270+1)-cl) and st[1]>=((210+1)+cl) and st[0]>=((240+1)+cl) and st[1]<=((230+1)+cl)):
         canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
         #print("coordinate is in C shape")
@@ -80,14 +80,14 @@ def obstacles(st):
         canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
         #print("coordinate is out of the map boundary")
         return None
-        
+
     else :
         return st
 
 
 #removes from the queue
 def removing_from_queue():
-    
+
     check = queue1.remove()
     cs = duplicate_costqueue.pop()
     return check, cs
@@ -107,9 +107,9 @@ def check_if_visited(check, cs):
     visited_child_list.append(check.current)
     visited_parent_list.append(check.parent)
     visited_child_cost.append(cs)
-    
+
     out.write(canvas[1:301, 1:401])
-    
+
     return check, cs
 
 #this function performs actions and gets children
