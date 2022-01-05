@@ -117,7 +117,7 @@ def display_obstacles(st):
         #print("coordinate is in rectangle")
         return None
 
-    elif (st[1] >= ((canvas_size[1]-1) - cl)) or (st[1] <= cl+1):
+    elif (st[1] >= ((canvas_size[1]-1) - cl)) or (st[1] < cl+1):
         display_canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
         #print("coordinate is out of the map boundary")
         return None
@@ -337,7 +337,8 @@ while parent_info is not None:
         if parent_info == i:
             parent_info = visited_parent_list[visited_child_list.index(i)]
             canvas[(canvas_size[0] - 1) - i[0],i[1],:] = 255
-            display_canvas[(canvas_size[0] - 1) - i[0],i[1],:] = 255
+            # display_canvas[(canvas_size[0] - 1) - i[0],i[1],:] = 255
+            cv2.circle(display_canvas, (i[1], (canvas_size[0] - 1) - i[0]), 1, (255,255,255), -1)
             #out.write(canvas[1:301, 1:401])
             out.write(display_canvas[1:301, 1:401])
             route.append(i)
